@@ -199,6 +199,7 @@ export type NeatDatePickerProps = {
   startDate?: Date;
   keysFontSize: number;
   calendarWidth: number;
+  isTimeVisible: Boolean;
 };
 
 const NeatDatePicker = ({
@@ -219,6 +220,7 @@ const NeatDatePicker = ({
   startDate,
   keysFontSize,
   calendarWidth,
+  isTimeVisible,
 }: NeatDatePickerProps) => {
   const [showChangeYearModal, setShowChangeYearModal] = useState(false);
   const sevenDays = language
@@ -469,7 +471,7 @@ const NeatDatePicker = ({
       </View>
 
       {/* Time */}
-      <View
+  { isTimeVisible ?    <View
         style={{
           width: '100%',
           flexDirection: 'row',
@@ -487,7 +489,7 @@ const NeatDatePicker = ({
           }}>
           {currTime}
         </Text>
-      </View>
+      </View> : null }
 
       {/* Done */}
       <TouchableOpacity
